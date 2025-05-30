@@ -1,6 +1,7 @@
 Este documento describe el flujo metodológico implementado para el realce, análisis y segmentación de imágenes de heridas crónicas de pie diabético, las cuales se clasifican en tres tipos de tejido: granulatorio, esfacelo y necrótico. El proceso se organiza en etapas iterativas que buscan optimizar la segmentación de estos tejidos.
 Imagen de flujo metodologico
 
+![Diagrama de metodología](URL_DIRECTA_DE_LA_IMAGEN)
 
 
 1. Preparación y Análisis Inicial de Imágenes
