@@ -1,7 +1,7 @@
 Este documento describe el flujo metodológico implementado para el realce, análisis y segmentación de imágenes de heridas crónicas de pie diabético, las cuales se clasifican en tres tipos de tejido: granulatorio, esfacelo y necrótico. El proceso se organiza en etapas iterativas que buscan optimizar la segmentación de estos tejidos.
 Imagen de flujo metodologico
 
-![Diagrama de metodología](URL_DIRECTA_DE_LA_IMAGEN)
+![Diagrama de metodología](https://github.com/0-Baruc-1/Segmentaci-n-de-heridas/blob/main/Diagrama.png)
 
 
 1. Preparación y Análisis Inicial de Imágenes
@@ -31,17 +31,26 @@ Finalmente, se aplican técnicas de postprocesamiento para la segmentación util
 * Selección de Región Central: Identifica y selecciona la región de interés dentro de los 2/5 centrales de la imagen, lo que ayuda a enfocar la segmentación en el área relevante de la herida (seleccionar_region_central).
 * Evaluación Cuantitativa: Crucialmente, postn.py también es responsable de calcular las métricas de evaluación del rendimiento de la segmentación. Utiliza la función calcular_metricas para determinar el Índice de Jaccard, F1-score, Precisión, Recall, Verdaderos Positivos (TP), Falsos Positivos (FP), Verdaderos Negativos (TN) y Falsos Negativos (FN), proporcionando los Resultados finales de la calidad de la segmentación.
 Este procedimiento iterativo y multi-etapa permite un enfoque sistemático para el realce y la segmentación precisa de los diferentes tipos de tejido en heridas crónicas de pie diabético.
-Conceptos Clave
+
+**Conceptos Clave**
+
 Espacio de Color HSV
+
+![Espacio de color HSV](https://github.com/0-Baruc-1/Segmentaci-n-de-heridas/blob/main/HSV%20space.jpg)
+
+
 El espacio de color HSV (Hue, Saturation, Value) es un modelo de color alternativo al RGB (Red, Green, Blue) que se asemeja más a la forma en que el ojo humano percibe el color. Es particularmente útil en el procesamiento de imágenes para la segmentación, ya que sus componentes están más desacoplados de la iluminación que en el modelo RGB.
 * Hue (Tono): Representa el color puro, como el rojo, verde o azul. Se mide en grados de 0 a 360 (aunque en OpenCV y otras librerías puede estar escalado a 0-179 para ajustarse a un byte). Es la cualidad que distingue un color de otro.
 * Saturation (Saturación): Indica la pureza o intensidad del color. Un valor de saturación alto significa un color más puro y vibrante, mientras que un valor bajo indica un color más descolorido o grisáceo. Se mide como un porcentaje de 0% a 100% (o de 0 a 255).
 * Value (Valor/Brillo): Describe la luminosidad o brillantez del color. Un valor alto significa un color más claro (más cercano al blanco), y un valor bajo significa un color más oscuro (más cercano al negro). También se mide como un porcentaje de 0% a 100% (o de 0 a 255).
 La ventaja de HSV en aplicaciones de segmentación, como la que se describe en este flujo, radica en que los componentes de tono y saturación son menos sensibles a las variaciones de iluminación, lo que facilita la identificación de colores específicos de los tejidos independientemente de las condiciones de luz.
+
+
 Índice de Jaccard (Coeficiente de Similitud de Jaccard)
 El Índice de Jaccard, también conocido como Coeficiente de Similitud de Jaccard o Intersection Over Union (IoU), es una métrica utilizada para evaluar la similitud y diversidad de conjuntos de muestras. En el contexto de la segmentación de imágenes, se usa para medir la similitud entre la máscara de segmentación predicha y la máscara de referencia (verdad fundamental).
 La fórmula del Índice de Jaccard es la siguiente:
-J(A,B)=∣A∪B∣∣A∩B∣​=Aˊrea de UnioˊnAˊrea de Interseccioˊn​
+![Indice de jaccard](https://github.com/0-Baruc-1/Segmentaci-n-de-heridas/blob/main/jaccard.jpg)
+
 Donde:
 * A es el conjunto de píxeles en la máscara de segmentación predicha.
 * B es el conjunto de píxeles en la máscara de referencia (verdad fundamental).
